@@ -44,7 +44,7 @@ export function Navigation() {
               className="flex items-center gap-3 group"
             >
               <motion.img
-                src="/logo-transparente.png"
+                src={`${import.meta.env.BASE_URL}logo-transparente.png`}
                 alt="Dreieck Consultora"
                 className="h-12 w-auto"
                 whileHover={{ scale: 1.05, rotate: 5 }}
