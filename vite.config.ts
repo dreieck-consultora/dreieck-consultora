@@ -10,7 +10,7 @@ export default defineConfig({
   ],
 
   build: {
-    outDir: 'dist', 
+    outDir: 'docs', 
     sourcemap: true,
     target: 'esnext',
     emptyOutDir: true,
