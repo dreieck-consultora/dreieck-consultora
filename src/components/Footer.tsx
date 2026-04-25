@@ -196,13 +196,12 @@ export function Footer() {
           <div className="flex items-center justify-center gap-1">
             <span>Diseño y desarrollo web por</span>
             <a 
-              href="https://www.linkedin.com/in/ruslan-komarytskiy-1665011ba" 
+              href="https://developer-fullstack-phi.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-yellow-400 hover:underline flex items-center gap-1"
-              aria-label="Perfil de LinkedIn de Ruslan Komarytskiy"
+              aria-label="Portafolio de Ruslan Komarytskiy"
             >
-              <Linkedin className="w-3 h-3" />
               Ruslan
             </a>
           </div>
