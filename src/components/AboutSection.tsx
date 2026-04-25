@@ -1,23 +1,37 @@
 
 
-import { Target, Linkedin } from "lucide-react";
+import { Target, Linkedin, Instagram } from "lucide-react";
 // Se eliminan las importaciones de motion, useScroll, useTransform, Award, Briefcase, GraduationCap
 import { useRef } from "react";
 import { motion } from "motion/react";
 
-// Datos de LinkedIn
+// Datos de LinkedIn del equipo
 const linkedinLinks = [
-  { 
+  {
     href: "https://www.linkedin.com/in/pazcamino/",
-    label: "Paz Camino" 
+    label: "Paz Camino"
   },
-  { 
+  {
     href: "https://www.linkedin.com/in/fernanda-armagno-18512151/",
-    label: "Fernanda Armagno" 
+    label: "Fernanda Armagno"
   },
-  { 
+  {
     href: "https://www.linkedin.com/in/agustina-tauro-84726232/",
-    label: "Agustina Tauro" 
+    label: "Agustina Tauro"
+  },
+];
+
+// Datos de redes sociales de la empresa
+const socialLinks = [
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/dreieck.consultora?igsh=aGVxOWRwMGhvbzE=",
+    label: "Instagram"
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/dreieck-consultora/",
+    label: "LinkedIn"
   },
 ];
 
@@ -105,10 +119,45 @@ export function AboutSection() {
             >
               <Target className="text-yellow-600" size={32} />
             </div>
+
+            {/* Redes Sociales de la empresa */}
+            <motion.div
+              className="mt-12 pt-8 border-t border-gray-200"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-sm text-gray-600 mb-4">Síguenos:</p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                {socialLinks.map((social, i) => {
+                  const Icon = social.icon;
+                  return (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-yellow-100 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition-colors text-sm text-yellow-600 font-medium border-2 border-yellow-600"
+                      aria-label={social.label}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * i }}
+                      viewport={{ once: true }}
+                    >
+                      <Icon size={16} />
+                      <span>{social.label}</span>
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </motion.div>
           </div>
 
           {/* ELIMINADO: La sección de las cuatro tarjetas de características (Formación Especializada, etc.) */}
-          
+
         </div>
       </div>
     </section>

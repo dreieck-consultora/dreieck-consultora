@@ -10,27 +10,17 @@ const validateEmail = (email: string) => {
   return re.test(String(email).toLowerCase());
 };
 
-// Datos de las redes sociales
+// Datos de las redes sociales de la empresa
 const socialLinks = [
-  { 
-    icon: Linkedin, 
-    href: "https://www.linkedin.com/in/pazcamino/",
-    label: "Paz Camino" 
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/dreieck.consultora?igsh=aGVxOWRwMGhvbzE=",
+    label: "Instagram"
   },
-  { 
-    icon: Linkedin, 
-    href: "https://www.linkedin.com/in/fernanda-armagno-18512151/",
-    label: "Fernanda Armagno" 
-  },
-  { 
-    icon: Linkedin, 
-    href: "https://www.linkedin.com/in/agustina-tauro-84726232/",
-    label: "Agustina Tauro" 
-  },
-  { 
-    icon: Instagram, 
-    href: "URL_DE_TU_INSTAGRAM", // **¡IMPORTANTE! Reemplaza con tu URL de Instagram**
-    label: "Instagram" 
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/dreieck-consultora",
+    label: "LinkedIn"
   },
 ];
 
@@ -339,6 +329,42 @@ export function ContactSection() {
                   </motion.li>
                 ))}
               </ul>
+            </motion.div>
+
+            {/* Redes Sociales */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="mb-4 uppercase tracking-wide text-sm text-gray-600">
+                Síguenos
+              </h4>
+              <div className="flex gap-3">
+                {socialLinks.map((social, i) => {
+                  const Icon = social.icon;
+                  return (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition-colors text-sm text-gray-700 font-medium border border-gray-200 hover:border-yellow-500"
+                      aria-label={social.label}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.9 + i * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <Icon size={18} />
+                      <span>{social.label}</span>
+                    </motion.a>
+                  );
+                })}
+              </div>
             </motion.div>
           </motion.div>
         </div>

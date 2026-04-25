@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Github } from "lucide-react";
+import { Linkedin, Mail, Instagram } from "lucide-react";
 import { motion } from "motion/react";
 import logo from "figma:asset/998784cf69b6d8792a6a386cfe77446240c85250.png";
 
@@ -93,21 +93,59 @@ export function Footer() {
                 dreieck.c@gmail.com
               </a>
               <div className="space-y-4 pt-4">
+                <p className="text-sm text-gray-400">Síguenos:</p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    {
+                      icon: Instagram,
+                      label: "Instagram",
+                      url: "https://www.instagram.com/dreieck.consultora?igsh=aGVxOWRwMGhvbzE="
+                    },
+                    {
+                      icon: Linkedin,
+                      label: "LinkedIn",
+                      url: "https://www.linkedin.com/company/dreieck-consultora/"
+                    }
+                  ].map((social, i) => {
+                    const Icon = social.icon;
+                    return (
+                      <motion.a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-yellow-500/10 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition-colors text-sm text-yellow-400 font-medium border border-yellow-500/30"
+                        aria-label={social.label}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 + i * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Icon size={16} className="text-yellow-400" />
+                        <span>{social.label}</span>
+                      </motion.a>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="space-y-4 pt-4">
                 <p className="text-sm text-gray-400">Conoce a nuestro equipo:</p>
                 <div className="flex flex-wrap gap-3">
                   {[
-                    { 
-                      icon: Linkedin, 
+                    {
+                      icon: Linkedin,
                       label: "Paz Camino",
                       url: "https://www.linkedin.com/in/pazcamino/"
                     },
-                    { 
-                      icon: Linkedin, 
+                    {
+                      icon: Linkedin,
                       label: "Fernanda Armagno",
                       url: "https://www.linkedin.com/in/fernanda-armagno-18512151/"
                     },
-                    { 
-                      icon: Linkedin, 
+                    {
+                      icon: Linkedin,
                       label: "Agustina Tauro",
                       url: "https://www.linkedin.com/in/agustina-tauro-84726232/"
                     }
@@ -125,7 +163,7 @@ export function Footer() {
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 + i * 0.1 }}
+                        transition={{ delay: 0.4 + i * 0.1 }}
                         viewport={{ once: true }}
                       >
                         <Icon size={16} className="text-yellow-400" />
